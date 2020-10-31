@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[184]:
+# In[2]:
 
 
 # Import dependencies
@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
-# In[185]:
+# In[3]:
 
 
 # Chromedriver
@@ -20,7 +20,7 @@ executable_path = {'executable_path': 'chromedriver.exe'}
 browser = Browser('chrome', **executable_path, headless=False)
 
 
-# In[186]:
+# In[4]:
 
 
 # website to scrape
@@ -28,7 +28,7 @@ url = 'https://mars.nasa.gov/news/'
 browser.visit(url)
 
 
-# In[187]:
+# In[5]:
 
 
 # Splinter can capture a page's underlying html and use pass it to BeautifulSoup to allow us to scrape the content
@@ -44,7 +44,7 @@ news_p = soup.find('div', class_='article_teaser_body').text
 print(news_p)      
 
 
-# In[188]:
+# In[7]:
 
 
 # website to scrape
@@ -55,14 +55,14 @@ browser.visit(img_url)
 html = browser.html
 soup = BeautifulSoup(html, 'html.parser')
 
-featured_image_url = soup.find('li', class_='slide').find('a', class_='fancybox')['data-fancybox-href'] 
+featured_image_url = img_url + soup.find('li', class_='slide').find('a', class_='fancybox')['data-fancybox-href'] 
 print(featured_image_url)
 # print(soup.prettify())
 
-   
 
 
-# In[190]:
+
+# In[8]:
 
 
 # Scrape Mars hemisphere image url and title
@@ -112,7 +112,7 @@ hemisphere_image_urls = [
 hemisphere_image_urls
 
 
-# In[203]:
+# In[9]:
 
 
 # website to scrape
@@ -128,7 +128,7 @@ print(table[0])
 # print(soup.prettify())
 
 
-# In[204]:
+# In[10]:
 
 
 df = table[0]
