@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 
 
 # From the separate python file in this directory, we'll import the code that is used to scrape mars data
-import mission_to_mars
+import scrape_mars
 
 app = Flask(__name__)
 
@@ -27,7 +27,7 @@ def index():
 def scraper():
 
     # scrape_craigslist.scrape() is a custom function that we've defined in the scrape_craigslist.py file within this directory
-    listings_data = mission_to_mars.scrape
+    listings_data = scrape_mars.scrape
     listings.insert_many(listings_data)
     
     # Use Flask's redirect function to send us to a different route once this task has completed.
