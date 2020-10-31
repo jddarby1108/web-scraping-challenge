@@ -19,7 +19,7 @@ listings.drop()
 # If there are no listings, the table will be empty.
 @app.route("/")
 def index():
-    listing_results = listings.find()
+    listing_results = listings
     return render_template("index.html", listing_results=listing_results)
 
 # This route will trigger the webscraping, but it will then send us back to the index route to render the results
